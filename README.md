@@ -78,7 +78,13 @@ chmod +x run_all.sh
 
 If running separately, follow this order to ensure proper synchronization:
 
-#### 1. Central Node
+### 1. Build
+```bash
+colcon build --packages-select sensor_system
+source install/setup.bash
+```
+
+#### 2. Central Node
 
 ```bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
@@ -86,7 +92,7 @@ export FASTRTPS_DEFAULT_PROFILES_FILE=$(pwd)/fastdds_tuning.xml
 ros2 run sensor_system central_node
 ```
 
-#### 2. Sensor Nodes
+#### 3. Sensor Nodes
 
 ```bash
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
